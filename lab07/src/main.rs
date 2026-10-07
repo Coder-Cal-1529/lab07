@@ -16,7 +16,7 @@ highs.push(roll);
 println!("{:?}:{:?}", DAYS[i], highs[i]);
 }
 }
-println!("the average temp for this week is ");
+println!("the average temp for this week is {:.2} ", average_temp(&highs));
 
 let mut hot_day: usize;
 hot_day= hottest_day(&highs);

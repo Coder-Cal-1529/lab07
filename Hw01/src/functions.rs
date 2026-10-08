@@ -23,5 +23,5 @@ io::stdin()
     .expect("Failed to read line");
 let player_input: char = input.trim().parse().expect("not a number");
 }
-return player_input = player_input
+return player_input = player_input;
 }

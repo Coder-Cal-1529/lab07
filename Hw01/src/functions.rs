@@ -40,4 +40,43 @@ return player_input;
 }
 
 
-fn can_afford(cost: i32, current_gold: i32)
+fn can_afford(cost: i32, current_gold: i32){
+}
+
+pub fn print_menu(menu: i32){
+if menu == 0{
+println!("=========================");
+println!("Welcome to Trail Traders");
+println!("Press 1 to start the game.");
+println!("Press 0 to end session.");
+println!("=========================");
+}else if menu == 1{
+println!("=========================");
+println!("1 -- Enter Store");
+println!("2 -- Go on an outing");
+println!("3 -- Trade with locals");
+println!("4 -- Check current stats");
+println!("0 -- End Game");
+println!("=========================");
+}else if menu == 2{
+println!("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+println!("1 -- Purchase nicer clothes: (gold amount)");
+println!("2 -- Purchase improved cart: (gold amount)");
+println!("3 -- Gear upgrades");
+println!("4 -- Purchase food: 5g per 1lb");
+println!("0 -- Main Menu");
+println!("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+}else if menu == 3{
+println!("------------------------");
+println!("1 -- Go Hunting");
+println!("2 -- Gather Resorces");
+println!("0 -- Main Menu");
+println!("------------------------");
+}else if menu == 4{
+println!("=-=-=-=-=-=-=-=-=-=-=-=");
+println!("1 -- Upgrade Gun");
+println!("2 -- Upgrade Axe");
+println!("3 -- Upgrade Knife");
+println!("=-=-=-=-=-=-=-=-=-=-=-=");
+}
+}

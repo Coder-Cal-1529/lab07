@@ -1,5 +1,6 @@
 use std::io;
-
+use rand::rngs::StdRng;
+use rand::{SeedableRng, Rng};
 pub fn read_input(max: i32,min: i32)->i32{
 let mut player_input: i32;
 let mut input = String::new();
@@ -39,8 +40,13 @@ return player_input;
 return player_input;
 }
 
-pub fn roll_dice(seed: u64){
+pub fn roll_dice(seed: u64)->u64{
+let mut rng = StdRng::seed_from_u64(seed);
+let dice: u64 = rng.random_range(1..=6);
+return dice;
 }
+
+
 
 pub fn can_afford(cost: u64, current_gold: u64)-> bool{
 let mut can_afford: bool = false;

@@ -39,10 +39,22 @@ return player_input;
 return player_input;
 }
 
-
-fn can_afford(cost: i32, current_gold: i32){
+pub fn roll_dice(seed: u64){
 }
 
+pub fn can_afford(cost: u64, current_gold: u64)-> bool{
+let mut can_afford: bool = false;
+if current_gold < cost {
+println!("You do not currently have the funds to purchase this item");
+return can_afford; 
+}else{
+can_afford = true;
+return can_afford;
+}
+}
+
+pub fn print_status(food: u64,gold:u64,lumber:u64,herbs:u64,days:u64){
+}
 pub fn print_menu(menu: i32){
 if menu == 0{
 println!("=========================");

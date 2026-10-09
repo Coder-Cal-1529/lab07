@@ -46,7 +46,15 @@ let dice: u64 = rng.random_range(1..=6);
 return dice;
 }
 
-
+pub fn roll_many_dice(mut seed: u64,mut roll_count: u64)->u64{
+let mut dice:u64 = 0;
+while roll_count > 0{
+dice += roll_dice(seed);
+seed+=1;
+roll_count-=1;
+}
+return dice;
+}
 
 pub fn can_afford(cost: u64, current_gold: u64)-> bool{
 let mut can_afford: bool = false;

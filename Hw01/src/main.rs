@@ -15,5 +15,6 @@ can_purchase = functions::can_afford(player_input as u64, gold_amount);
 if can_purchase == true{
 gold_amount -= player_input as u64;
 println!("you have the funds for this item, you now have {:.2}$ remaining", gold_amount);
+functions::print_status(gold_amount,2,3,5,3);
 }
 }

@@ -1,8 +1,27 @@
 mod functions;
-use std::io;
 fn main() {
+// main variables
 let mut gold_amount: u64 = 100;
-let mut can_purchase: bool = true;
+let mut food_amount: u64 = 0
+let mut lumber_amount: u64 =0
+let mut herbs_amount: u64 = 0
+let mut days: u64= 0
+let mut can_purchase: bool = false;
+
+// functions to copy from
+//*
+functions::print_status(food_amount,gold_amount,lumber_amount,herb_amount,days);
+
+player_input = functions::read_input(999,0);
+
+functions::print_menu(2,gold_amount);
+
+can_purchase = functions::can_afford(player_input as u64, gold_amount);
+if can_purchase == true{
+gold_amount -= player_input as u64;
+
+*//
+// initial code
 let mut player_input:i32 = functions::read_input(4,1); 
 if player_input == 0{
 println!("return was true"); 
@@ -10,11 +29,12 @@ println!("return was true");
 println!( "input was {}", player_input);
 }
 player_input = functions::read_input(999,0);
-functions::print_menu(2);
+player_input*=5;
+functions::print_menu(2,gold_amount);
 can_purchase = functions::can_afford(player_input as u64, gold_amount);
 if can_purchase == true{
 gold_amount -= player_input as u64;
 println!("you have the funds for this item, you now have {:.2}$ remaining", gold_amount);
-functions::print_status(gold_amount,2,3,5,3);
+functions::print_status(food_amount,gold_amount,lumber_amount,herb_amount,days);
 }
 }

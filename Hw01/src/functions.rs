@@ -63,7 +63,7 @@ println!("Days in Game: {}", days);
 println!("=======================");
 }
 
-pub fn print_menu(menu: i32){
+pub fn print_menu(menu: i32, gold:u64){
 if menu == 0{
 println!("=========================");
 println!("Welcome to Trail Traders");
@@ -80,6 +80,7 @@ println!("0 -- End Game");
 println!("=========================");
 }else if menu == 2{
 println!("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+println!("Current Gold: {}g", gold);
 println!("1 -- Purchase nicer clothes: (gold amount)");
 println!("2 -- Purchase improved cart: (gold amount)");
 println!("3 -- Gear upgrades");
@@ -94,6 +95,7 @@ println!("0 -- Main Menu");
 println!("------------------------");
 }else if menu == 4{
 println!("=-=-=-=-=-=-=-=-=-=-=-=");
+println!("Current Gold: {}g", gold);
 println!("1 -- Upgrade Gun");
 println!("2 -- Upgrade Axe");
 println!("3 -- Upgrade Knife");

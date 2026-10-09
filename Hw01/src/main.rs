@@ -16,9 +16,13 @@ println!("return was true");
 }else{
 println!("input was {}", player_input);
 }
+
 player_input = functions::read_input(999,0);
 let mut dice_roll:u64 = functions::roll_dice(player_input as u64);
 println!("dice roll results: {}", dice_roll); 
+dice_roll = functions::roll_many_dice(player_input as u64, 4);
+println!("cumalitive of 4 dice roll results: {}", dice_roll);
+
 player_input*=5;
 functions::print_menu(2,gold_amount);
 can_purchase = functions::can_afford(player_input as u64, gold_amount);

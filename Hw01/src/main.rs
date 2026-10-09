@@ -14,9 +14,11 @@ player_input = functions::read_input(4,1);
 if player_input == 0{
 println!("return was true"); 
 }else{
-println!( "input was {}", player_input);
+println!("input was {}", player_input);
 }
 player_input = functions::read_input(999,0);
+let mut dice_roll:u64 = functions::roll_dice(player_input as u64);
+println!("dice roll results: {}", dice_roll); 
 player_input*=5;
 functions::print_menu(2,gold_amount);
 can_purchase = functions::can_afford(player_input as u64, gold_amount);

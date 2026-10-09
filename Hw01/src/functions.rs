@@ -54,7 +54,15 @@ return can_afford;
 }
 
 pub fn print_status(food: u64,gold:u64,lumber:u64,herbs:u64,days:u64){
+println!("=======================");
+println!("Gold: {}g", gold);
+println!("Food: {} lbs", food);
+println!("Lumber: {} logs", lumber); 
+println!("Medicinal Herbs: {}", herbs);
+println!("Days in Game: {}", days);
+println!("=======================");
 }
+
 pub fn print_menu(menu: i32){
 if menu == 0{
 println!("=========================");

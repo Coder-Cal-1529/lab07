@@ -67,6 +67,37 @@ return can_afford;
 }
 }
 
+pub fn hunt(seed: u64,mut gun_lvl: u64, knife_lvl: u64, cart: bool)->u64{
+let mut food_gain_mid: u64 = 0;
+let mut food_gain: u64 = 0;
+let mut dice: u64; 
+while gun_lvl > 0{
+dice = roll_dice(seed);
+if dice == 0 {
+food_gain_mid = 0;
+} else if dice <= 3{
+food_gain_mid = 10;
+}else if dice <= 5{
+food_gain_mid =20;
+}else if dice == 6{
+food_gain_mid = 40;
+}
+gun_lvl -=1;
+}
+food_gain += food_gain_mid*knife_lvl;
+if food_gain > 60{
+	if cart == true{
+		if food_gain > 120{
+		food_gain = 120; 
+		}
+	}else{
+	food_gain = 60;
+	}
+}
+return food_gain;
+}
+
+
 pub fn print_status(food: u64,gold:u64,lumber:u64,herbs:u64,days:u64){
 println!("=======================");
 println!("Gold: {}g", gold);

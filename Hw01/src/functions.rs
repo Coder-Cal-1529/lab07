@@ -67,7 +67,7 @@ return can_afford;
 }
 }
 
-pub fn hunt(seed: u64,mut gun_lvl: u64, knife_lvl: u64, cart: bool)->u64{
+pub fn hunt(mut seed: u64,mut gun_lvl: u64, knife_lvl: u64, cart: bool)->u64{
 let mut food_gain_mid: u64 = 0;
 let mut food_gain: u64 = 0;
 let mut dice: u64; 
@@ -86,6 +86,7 @@ println!("The hunt went great, 20 food gained");
 food_gain_mid = 40;
 println!("The hunt went perfectly, 40 food gained");
 }
+seed+=1;
 gun_lvl -=1;
 }
 food_gain += food_gain_mid*knife_lvl;
@@ -102,6 +103,62 @@ println!("Total food gained {}X{}", food_gain, knife_lvl);
 return food_gain;
 }
 
+pub fn gather1(mut seed: u64, mut axe_lvl: u64, cart: bool)-> u64{
+let mut lumber_gain_mid: u64 =0;
+let mut lumber_gain: u64 = 0;
+let mut dice: u64;
+while axe_lvl > 0{
+dice = roll_dice(seed);
+if dice == 0 {
+lumber_gain_mid = 0;
+} else if dice <= 3{
+lumber_gain_mid =0;
+}else if dice <= 5{
+lumber_gain_mid = 10;
+println!("you gatherd lots of resorces, gained 10 lumber and 15 herbs");
+}else if dice == 6{
+lumber_gain_mid = 20;
+println!("you gatherd an absurd amount of resources, gained 20 lumber and 10 herbs");
+}
+seed+=1;
+axe_lvl -=1;
+}
+lumber_gain += lumber_gain_mid;
+if lumber_gain > 30{
+	if cart == true{
+		if lumber_gain > 60{
+		lumber_gain = 60; 
+		}
+	}else{
+	lumber_gain = 30;
+	}
+}
+return lumber_gain;
+}
+
+pub fn gather2(mut seed: u64, mut knife_lvl: u64, cart: bool)-> u64{
+let mut herb_gain_mid: u64 =0;
+let mut herb_gain: u64 = 0;
+let mut dice: u64;
+while knife_lvl > 0{
+dice = roll_dice(seed);
+if dice == 0 {
+herb_gain_mid = 0;
+println!("you were unable to find any resorces");
+} else if dice <= 3{
+herb_gain_mid = 10;
+println!("you gatherd some herbs, gained 10 herbs");
+}else if dice <= 5{
+herb_gain_mid = 15;
+}else if dice == 6{
+herb_gain_mid = 10;
+}
+seed+=1;
+knife_lvl -=1;
+}
+herb_gain += herb_gain_mid;
+return herb_gain;
+}
 
 pub fn print_status(food: u64,gold:u64,lumber:u64,herbs:u64,days:u64){
 println!("=======================");

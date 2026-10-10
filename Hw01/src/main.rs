@@ -8,7 +8,7 @@ let mut herbs_amount: u64 = 0;
 let mut days: u64= 0;
 let mut can_purchase: bool = false;
 let mut player_input: i32 = 0;
-
+let mut cart = false;
 // initial code
 player_input = functions::read_input(4,1); 
 if player_input == 0{
@@ -23,6 +23,7 @@ println!("dice roll results: {}", dice_roll);
 dice_roll = functions::roll_many_dice(player_input as u64, 4);
 println!("cumalitive of 4 dice roll results: {}", dice_roll);
 
+food_amount += functions::hunt(player_input as u64,1,1,cart);
 player_input*=5;
 functions::print_menu(2,gold_amount);
 can_purchase = functions::can_afford(player_input as u64, gold_amount);

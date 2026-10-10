@@ -9,7 +9,7 @@ io::stdin()
     .expect("Failed to read line");
 let input_check: Result<i32,_> = input.trim().parse();
 match input_check{
-Ok(i32) => player_input = input_check.expect("i32"),
+Ok(_i32) => player_input = input_check.expect("i32"),
 Err(_) => player_input = max+10,
 }
 let mut count: i32 = 0;
@@ -24,7 +24,7 @@ io::stdin()
     .expect("Failed to read line");
 let input_check: Result<i32,_> = input.trim().parse();
 match input_check{
-Ok(i32) => player_input = input_check.expect("i32"),
+Ok(_i32) => player_input = input_check.expect("i32"),
 Err(_) => player_input = max+10,
 }
 count +=1;
@@ -136,7 +136,7 @@ if lumber_gain > 30{
 return lumber_gain;
 }
 
-pub fn gather2(mut seed: u64, mut knife_lvl: u64, cart: bool)-> u64{
+pub fn gather2(mut seed: u64, mut knife_lvl: u64)-> u64{
 let mut herb_gain_mid: u64 =0;
 let mut herb_gain: u64 = 0;
 let mut dice: u64;
@@ -192,6 +192,7 @@ println!("1 -- Purchase nicer clothes: (gold amount)");
 println!("2 -- Purchase improved cart: (gold amount)");
 println!("3 -- Gear upgrades");
 println!("4 -- Purchase food: 5g per 1lb");
+println!("5 -- Sell Resorces");
 println!("0 -- Main Menu");
 println!("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 }else if menu == 3{

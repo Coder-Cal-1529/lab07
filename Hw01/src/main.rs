@@ -23,6 +23,9 @@ println!("dice roll results: {}", dice_roll);
 dice_roll = functions::roll_many_dice(player_input as u64, 4);
 println!("cumalitive of 4 dice roll results: {}", dice_roll);
 
+lumber_amount += functions::gather1(player_input as u64,1,false);
+herbs_amount += functions::gather2(player_input as u64,1,false);
+
 food_amount += functions::hunt(player_input as u64,1,1,cart);
 player_input*=5;
 functions::print_menu(2,gold_amount);

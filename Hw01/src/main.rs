@@ -1,20 +1,21 @@
 mod functions;
 fn main() {
 // main variables
-let mut seed: u64;
+let seed: u64;
 let mut gold_amount: u64 = 100;
-let mut gold_amount_mid: u64 =0;
+let mut gold_amount_mid: u64;
 let mut food_amount: u64 = 0;
 let mut lumber_amount: u64 =0;
 let mut herbs_amount: u64 = 0;
 let mut days: u64= 0;
-let mut days_mid: u64 = 0;
-let mut can_purchase: bool = false;
-let mut player_input: i32 = 0;
+let mut days_mid: u64;
+let mut can_afford: bool;
+let mut player_input: i32;
+let mut clothes: bool = false;
 let mut cart: bool = false;
-let mut axe_level: u64 =1;
-let mut gun_level: u64 =1;
-let mut knife_level: u64 =1;
+let axe_level: u64 =1;
+let gun_level: u64 =1;
+let knife_level: u64 =1;
 let mut roll_amount: u64=0;
 // start of main function
 
@@ -47,8 +48,59 @@ player_input = functions::read_input(1,0);
 	println!("session terminated");
 	return;
 	}
+	
 }
 if player_input == 1{
+functions::print_menu(2,gold_amount);
+player_input = functions::read_input(4,1);
+	if player_input == 0{
+	player_input = 1;
+	}
+	if player_input == 1{
+	if clothes == true{
+		println!("You have already have this item"); 
+		}else{
+			can_afford = functions::can_afford(150,gold_amount);
+			if can_afford == true{
+			clothes = true;
+			println!("You have purchased better clothes");
+			}
+		}
+	}
+	if player_input == 2{
+		if cart == true{
+		println!("You have already have this item"); 
+		}else{
+			can_afford = functions::can_afford(150,gold_amount);
+			if can_afford == true{
+			cart = true;
+			println!("You have purchased an upgraded cart: you can now bring back double the resorces from outings");
+			}
+		}
+	}
+	if player_input ==3{
+	println!("This function is currently unavailable");
+	}
+
+	if player_input == 4{
+	println!("how much food would you like to buy?"); 
+	println!("1 lb of food = 5g");
+	player_input = functions::read_input(9999,1);
+		if player_input == 0{
+		}else {
+			can_afford = functions::can_afford(player_input as u64 *5, gold_amount);
+			if can_afford == true{
+			food_amount +=player_input as u64;
+			gold_amount -=player_input as u64 *5;
+			days += 1;
+			}	
+		}
+	if player_input == 5{
+	println!("this functions is currently unavailable");
+	}
+	}
+println!("Press 0 to continue");
+functions::read_input(0,0);
 }
 if player_input == 2{
 functions::print_menu(3,gold_amount);
@@ -58,11 +110,13 @@ player_input = functions::read_input(2,1);
 	}
 	if player_input == 1{
 	food_amount += functions::hunt(seed+roll_amount,gun_level,knife_level,cart);
+	roll_amount += gun_level;
 	days+=1;
 	}
 	if player_input == 2{
 	lumber_amount += functions::gather1(seed+roll_amount,axe_level,cart);
-	herbs_amount += functions::gather2(seed+roll_amount,knife_level,cart);
+	herbs_amount += functions::gather2(seed+roll_amount,knife_level);
+	roll_amount += 1;
 	days+=2;
 	}
 println!("Press 0 to continue");
@@ -81,10 +135,11 @@ functions::read_input(0,0);
 }
 if player_input == 4{
 functions::print_status(food_amount,gold_amount,lumber_amount,herbs_amount,days);
+println!("Press 0 to continue");
+functions::read_input(0,0);
 }
 
 }
-
 }
 
 

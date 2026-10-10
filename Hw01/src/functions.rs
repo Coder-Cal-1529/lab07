@@ -75,12 +75,16 @@ while gun_lvl > 0{
 dice = roll_dice(seed);
 if dice == 0 {
 food_gain_mid = 0;
+println!("The hunt went poorly, 0 food gained");
 } else if dice <= 3{
 food_gain_mid = 10;
+println!("The hunt went ok, 10 food gained");
 }else if dice <= 5{
 food_gain_mid =20;
+println!("The hunt went great, 20 food gained");
 }else if dice == 6{
 food_gain_mid = 40;
+println!("The hunt went perfectly, 40 food gained");
 }
 gun_lvl -=1;
 }
@@ -94,6 +98,7 @@ if food_gain > 60{
 	food_gain = 60;
 	}
 }
+println!("Total food gained {}X{}", food_gain, knife_lvl);
 return food_gain;
 }
 
